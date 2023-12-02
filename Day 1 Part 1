@@ -37,3 +37,5 @@ with open('Day 1 Input.txt', 'r') as file:
         full_num += (full_num/10)
     
     total_value += full_num
+
+  print("Part 1:" + str(total_value))
