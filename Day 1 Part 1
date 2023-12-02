@@ -1,0 +1,39 @@
+# Part 1
+
+with open('Day 1 Input.txt', 'r') as file:
+  total_value = 0
+  for line in file:
+    string = [*line]
+    length = len(string)
+    first = False
+    full_num = 0
+    filter = []
+    for i in range(length):
+      flag = True
+      try:
+        int(string[0])
+
+      except ValueError:
+        flag = False
+        
+      if not flag:
+        string.pop(0)
+      elif not first:
+        full_num += (int(string[0]) * 10)
+        string.pop(0)
+        first = True
+      else:
+        filter.append(string[0])
+        string.pop(0)
+
+
+    while len(filter) > 1:
+      filter.pop(0)
+
+    try:
+      full_num += int(filter[0])
+
+    except IndexError:
+        full_num += (full_num/10)
+    
+    total_value += full_num
